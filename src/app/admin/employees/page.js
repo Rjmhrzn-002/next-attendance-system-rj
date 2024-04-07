@@ -60,10 +60,6 @@ const Employees = () => {
     fetchData();
   }, [employeeList]);
 
-  // useEffect(() => {
-  // const employeeId = params;
-  // const fet}, []);
-
   let filteredData = employeeList.filter((employee) => {
     return employee.employee_name
       .toUpperCase()

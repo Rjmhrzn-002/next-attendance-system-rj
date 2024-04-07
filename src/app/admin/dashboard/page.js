@@ -118,7 +118,7 @@ const Dashboard = () => {
       </section>
       <section className="flex flex-col items-center order-0 md:order-none rounded-lg  overflow-hidden  row-span-2">
         <h1 className="w-full text-center py-4 text-[21px] font-[500]  text-primary bg-secondary">
-          Today's Attendance
+          Today&apos;s Attendance
         </h1>
         <div className="flex-1 w-full bg-primary text-secondary p-2 overflow-auto">
           5
