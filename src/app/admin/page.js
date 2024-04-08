@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import AdminLayout from "./layout";
@@ -13,6 +13,12 @@ const AdminIndex = () => {
   const { token } = useContext(AuthContext);
   console.log(!!token);
 
+  useEffect(() => {
+    if (!token) {
+      router.push("/admin/login");
+    }
+  }, [token, router]);
+
   return (
     <>
       {!!token ? (
@@ -21,9 +27,7 @@ const AdminIndex = () => {
             <Dashboard />
           </AdminLayout>
         </ProtectedRoute>
-      ) : (
-        router.push("/admin/login")
-      )}
+      ) : null}
     </>
   );
 };

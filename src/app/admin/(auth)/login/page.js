@@ -13,7 +13,7 @@ import Input from "@/components/GLOBAL/input/Input";
 import Button from "@/components/GLOBAL/button/Button";
 import supabase from "../../../../config/supabase";
 import { useContext, useState } from "react";
-// import { setAdminToken } from "../../adminAuth";
+import { setAdminToken } from "../../adminAuth";
 import { AuthContext } from "@/provider/AuthProvider";
 import { generateToken } from "@/util/util";
 
@@ -53,8 +53,8 @@ const Login = () => {
         console.log("Login successful:", data);
         const token = generateToken();
 
-        // setAdminToken(token);
-        localStorage.setItem("token", token);
+        setAdminToken(token);
+        // localStorage.setItem("token", token);
         tokenSetter(token);
 
         Swal.fire({

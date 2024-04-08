@@ -63,6 +63,7 @@ const NewEmployee = ({ params }) => {
       }
 
       alert("Successfully updated the employee");
+      router.push("/admin/employees");
     } catch (err) {
       console.error(err.message);
     }

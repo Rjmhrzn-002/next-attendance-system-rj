@@ -8,14 +8,14 @@ export const AuthProvider = ({ children }) => {
     getToken();
   });
 
-  const tokenSetter = (newToken) => {
-    setAdminToken(newToken);
-    setToken(newToken);
-  };
-
   const contextValue = useMemo(() => {
+    const tokenSetter = (newToken) => {
+      setToken(newToken);
+      setAdminToken(newToken);
+    };
+
     return { token, tokenSetter };
-  }, [token, tokenSetter]);
+  }, [token]);
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
