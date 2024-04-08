@@ -68,27 +68,26 @@ const NewEmployee = ({ params }) => {
     }
   };
 
-  const fetchEmployeeId = async () => {
-    if (!!employeeId) {
-      const response = await supabase
-        .from("employees")
-        .select("*")
-        .eq("employee_id", employeeId)
-        .single();
-
-      setEmployee(response.data);
-      setIsLoading(false);
-    } else {
-      setIsLoading(false);
-    }
-  };
-
   const createPin = () => {
     const newPin = generatePin();
     setPin(newPin);
   };
 
   useEffect(() => {
+    const fetchEmployeeId = async () => {
+      if (!!employeeId) {
+        const response = await supabase
+          .from("employees")
+          .select("*")
+          .eq("employee_id", employeeId)
+          .single();
+
+        setEmployee(response.data);
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+      }
+    };
     fetchEmployeeId();
   }, [employeeId]);
 
